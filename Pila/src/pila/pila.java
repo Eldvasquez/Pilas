@@ -7,24 +7,42 @@ package pila;
 
 /**
  *
- * @author alumno
+ * @author Jorge Ivan Vasquez Sosa (0901-16-4067)
  */
 public class pila {
+    
+    private Nodo UltimoValorIngresado;
+    int tamano = 0;
+    String Lista = "";
+    
     String arr[];
     int maxSize;
     int top;
     
     public pila(){
        
-       arr= new String [10];
-       top =0;
+       UltimoValorIngresado = null;
+        tamano = 0;
     }
     
-    public boolean empty(){
-       if (top ==0)
-       {return true;}
-       else
-           return false;
+    //Método para saber cuando la pila esta vacia
+    public boolean PilaVacia(){
+        return UltimoValorIngresado == null;
+    }
+    
+    //Método para insertar un nodo en la pila
+    public void InsertarNodo(int nodo){
+        Nodo nuevo_nocdo = new Nodo(nodo);
+        nuevo_nocdo.siguiente = UltimoValorIngresado;
+        UltimoValorIngresado = nuevo_nocdo;
+        tamano++;
+    }    
+    
+    public int EliminarNodo(){
+        int auxiliar = UltimoValorIngresado.informacion;
+        UltimoValorIngresado = UltimoValorIngresado.siguiente;
+        tamano--;
+        return auxiliar;
     }
     
     public void push(String str){
