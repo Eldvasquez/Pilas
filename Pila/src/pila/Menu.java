@@ -10,7 +10,8 @@ public class Menu {
     public static void main (String arg []){
       int opcion = 0, nodo = 0;
         pila Pila = new pila();
-
+          
+        //Menu del programa
         do {
             try {
 
@@ -18,8 +19,10 @@ public class Menu {
                         "Menú de Opciones\n\n"
                         + "1. Insertar un nodo\n"
                         + "2. Eliminar un nodo\n"
-                        + "3. ¿La Pila esta vacia?\n"
-                        + "4. Salir.\n\n"));
+                        + "3. Ver si la pila esta vacia\n"
+                        + "4. Ver valores de la pila\n"
+                        + "5. Borrar Pila\n"        
+                        + "6. Salir.\n\n"));
                         
                 
                 switch (opcion) {
@@ -47,8 +50,20 @@ public class Menu {
                         break;
                         
                     case 4:
-                       opcion = 4;
+                      
+                   Pila.MostrarValores();
+                       
                         break;                                     
+                    
+                    
+                        
+                        case 5:
+                       Pila.VaciarPila();
+                        break;  
+                         case 6:
+                       opcion = 6;
+                        break;                                     
+                    
                     
                     default:
                         JOptionPane.showMessageDialog(null, "Opción incorrecta, vuelve intentar nuevamente.");
@@ -59,6 +74,6 @@ public class Menu {
             } catch (NumberFormatException e) {
 
             }
-        } while (opcion != 4);
+        } while (opcion != 6);
     }
 }

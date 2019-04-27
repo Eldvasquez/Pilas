@@ -5,6 +5,8 @@
  */
 package pila;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Jorge Ivan Vasquez Sosa (0901-16-4067)
@@ -37,43 +39,39 @@ public class pila {
         UltimoValorIngresado = nuevo_nocdo;
         tamano++;
     }    
-    
+    //elimna un nodo de la pila
     public int EliminarNodo(){
         int auxiliar = UltimoValorIngresado.informacion;
         UltimoValorIngresado = UltimoValorIngresado.siguiente;
         tamano--;
         return auxiliar;
     }
-    
-    public void push(String str){
-        if(top < arr.length){
-          arr[top]= str; //[hola,x]
-        top++;  
-        }
-        else{
-            String temporal[] = new String[arr.length+10];
-            for(int i=0; i<arr.length;i++)
-            {
-                temporal[i]= arr[i];
-            }
-            arr=temporal;
+    //vacia la pila
+    public void VaciarPila(){
+        while (!PilaVacia()) {
+            EliminarNodo();            
         }
     }
     
-    public String peek(){
-        if (top >0)
-       return arr[top-1]; 
-        else
-            return null;
+    //muestra los valores de la pila
+    public void MostrarValores(){
+        Nodo recorrido = UltimoValorIngresado;
+        
+        while(recorrido != null){
+            Lista += recorrido.informacion + "\n";
+            recorrido = recorrido.siguiente;
+        }
+        JOptionPane.showMessageDialog(null, Lista);
+        Lista = "";
     }
     
-    public String pop(){
-        String temp=null;
-       if (top>0){
-           temp = arr[top-1];
-           arr[top-1]=null;
-           top--;
-       } 
-       return temp;
+    
+        
     }
-}
+
+    
+   
+       
+    
+   
+

@@ -17,6 +17,8 @@ public class Nodo {
         informacion = valor;
         siguiente = null;
     }
+
+   
 }
 
 
